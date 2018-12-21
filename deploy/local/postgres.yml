@@ -1,0 +1,38 @@
+version: '3.1'
+
+networks:
+  local_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.239.0/24
+
+services:
+  pg-db:
+    image: postgres:11
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /data/db
+    volumes:
+      - ${DATA_SOURCE}:/data
+    ports:
+      - 5432:5432
+    container_name: pg-db
+    networks:
+      local_net:
+        ipv4_address: 172.16.239.10
+
+  pg-admin:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    container_name: pg-admin
+    networks:
+      local_net:
+        ipv4_address: 172.16.239.11
+    extra_hosts:
+      - postgres.local:172.16.239.10

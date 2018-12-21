@@ -1,0 +1,14 @@
+##
+# Shared properties for all environments.
+# See "applicatin_xx.conf" for configuration for specific environment "xx".
+# Commented property or section with "..." value means it exists but defined in "application_xx.conf"
+#
+
+# COMMON SECTION
+datasource {
+  pool-name = default-connection-pool
+  driver-class-name = org.postgresql.Driver
+  jdbc-url = "jdbc:postgresql://postgres.local:5432/test"
+  username = postgres
+  password = postgres
+}
