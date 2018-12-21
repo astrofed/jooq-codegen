@@ -4,16 +4,11 @@
 package com.test.db.generated
 
 
-import java.util.ArrayList
-import java.util.Arrays
-import java.util.List
+import java.util.{ArrayList, Arrays, List}
 
 import javax.annotation.Generated
-
 import org.jooq.Schema
 import org.jooq.impl.CatalogImpl
-
-import scala.Array
 
 
 object DefaultCatalog {
@@ -39,7 +34,7 @@ class DefaultCatalog extends CatalogImpl("") {
   /**
    * The schema <code>public</code>.
    */
-  val PUBLIC = com.test.db.generated.Public.PUBLIC
+  def PUBLIC = com.test.db.generated.Public.PUBLIC
 
   override def getSchemas : List[Schema] = {
     val result = new ArrayList[Schema]
@@ -52,3 +47,4 @@ class DefaultCatalog extends CatalogImpl("") {
       Public.PUBLIC)
   }
 }
+
